@@ -15,28 +15,6 @@ import java.util.logging.Logger;
  * @author Isaiah
  */
 public class BestPathToKillTitan_2.4 implements Initializable {
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        try {
-            File file = new File("C://Users//User//");
-            AudioInputStream audioStream = null;
-            try {
-                audioStream = AudioSystem.getAudioInputStream(file);
-            } catch (UnsupportedAudioFileException | IOException ex) {
-                Logger.getLogger(BestPathFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            Clip clip = AudioSystem.getClip();
-            try {
-                clip.open(audioStream);
-            } catch (IOException ex) {
-                Logger.getLogger(BestPathFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(BestPathFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     
     public void showPaths(ActionEvent event){
         try{
@@ -47,7 +25,7 @@ public class BestPathToKillTitan_2.4 implements Initializable {
                 //Number of vertices
                 int vertices = 16;
 
-                // array of vectors is used to store the graph in the form of an adjacencyListacency list-->>
+                // array of vectors is used to store the graph in the form of an adjacency list-->>
                 ArrayList<ArrayList<Integer>> adjacencyList = new ArrayList<>();
                 for(int i = 0; i < vertices; i++){
                         adjacencyList.add(new ArrayList<>());
@@ -90,7 +68,7 @@ public class BestPathToKillTitan_2.4 implements Initializable {
 /**
             catch(NumberFormatException e){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setHeaderText("Kindly enter the Titan location!!!");
+                alert.setHeaderText("Enter the Titan location");
                 if(alert.showAndWait().get() == ButtonType.OK){
                     mapNodeText.clear();
                     pathTextArea.clear();
@@ -130,7 +108,7 @@ public class BestPathToKillTitan_2.4 implements Initializable {
 		return;
 	}
         
-	// Loop for all the parents of the given vertex-->>
+	// Loop for all the parents or previous vertices of the given vertex-->>
 	
 	for (int par : parent.get(destination)) {
             // Insert the current vertex in path-->>
@@ -188,7 +166,7 @@ public class BestPathToKillTitan_2.4 implements Initializable {
 	find_paths(paths, path, parent, vertices, destination);
         
 	for (ArrayList<Integer> v : paths) {
-            // Since paths contain eachpath in reverse order, so reverse it-->>
+            // Since paths contain each path in reverse order, so reverse it-->>
             Collections.reverse(v);
             // Print node for the current path-->>
             for (int i = 0; i < v.size(); i++) {
