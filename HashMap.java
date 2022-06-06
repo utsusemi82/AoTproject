@@ -3,13 +3,24 @@ import java.util.*;
 public class HashMap {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String input;
+        String input = "";
         HashMap map = new HashMap();
-        while (true) {
+        while (!input.isEmpty()) {
             System.out.print("Enter Marley sentence: ");
             input = sc.nextLine();
             System.out.println('\n' + map.convert(input));
         }
+        RSA rsa = new RSA();
+        try{
+            System.out.print("Enter Paradis sentence: ");
+            input = sc.nextLine();
+            System.out.println("Performing RSA encryption");
+            String encryptedMessage = rsa.encrypt(input);
+            String decryptedMessage = rsa.decrypt(encryptedMessage);
+
+            System.err.println("Encrypted:\n"+encryptedMessage);
+            System.err.println("Decrypted:\n"+decryptedMessage);
+        }catch (Exception ingored){}
     }
 
     private static char[] dict = { 'j', 'c', 't', 'a', 'k', 'z', 's', 'i', 'w', 'x', 'o', 'n', 'g', 'b', 'f', 'h', 'l',
