@@ -27,6 +27,13 @@ public class HashMap {
             'd', 'e', 'y', 'm', 'v', 'u', 'p', 'q', 'r' };
 
     public static String convert(String input) {
+        return convert(input, 0);
+    }
+    
+    public static String convert(String sourceString, int shiftValue) {
+        String input = "";
+        for (char c : sourceString.toCharArray()) 
+        input += (char) (c + shiftValue);
         String output = "";
 
         for (int i = 0; i < input.length(); i++) {
