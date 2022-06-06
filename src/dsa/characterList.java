@@ -4,6 +4,8 @@
  */
 package dsa;
 
+import java.util.Comparator;
+
 /** *
  * @author JiaWen
  * @param <E>
@@ -11,6 +13,7 @@ package dsa;
 public class characterList<E extends characteristic> {
     private Node<E> head, tail;
     private int size = 0;
+    private int array[];
 
     public characterList() {
     }
@@ -125,6 +128,30 @@ public class characterList<E extends characteristic> {
         tail = null;
     }
     
+    public int getSize(){
+        return size;
+    }
+    
+    public E getCharacter(String name){
+        Node<E> current =  head;
+        for(int i = 0; i < size; i++)
+            if(current.element.equals(name))
+                return current.element;
+        return null;
+    }
+    
+   public int[] toArray(int array[]){
+       return array;
+   }
+   
+   public int get(int index) throws IndexOutOfBoundsException {
+        if (index >= size || index < 0)
+            throw new IndexOutOfBoundsException("Illegal Index");
+        return array[index];
+    }
+   
+   
+
     public void display(){
         Node<E> current = head;
         for(int i = 0; i < size; i++){
@@ -133,4 +160,5 @@ public class characterList<E extends characteristic> {
             current = current.next;
         }
     } 
+
 }
