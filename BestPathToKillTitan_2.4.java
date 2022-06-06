@@ -25,7 +25,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 /**
  * FXML Controller class
  *
- * @author Nafees
+ * @author Isaiah
  */
 public class BestPathFXMLController implements Initializable {
     
@@ -37,7 +37,7 @@ public class BestPathFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            File file = new File("C://Users//User//Downloads//AOT_BestPath.wav");
+            File file = new File("C://Users//User//");
             AudioInputStream audioStream = null;
             try {
                 audioStream = AudioSystem.getAudioInputStream(file);
