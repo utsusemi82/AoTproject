@@ -21,13 +21,16 @@ public class titanStatic {
         titansPriorityQueue priority = new titansPriorityQueue();
         //the linkedList is unsorted, the search for largest titan happens only when dequeue() is called
         for(int i = 0; i < numberOfTitans; i++){
-            priority.enqueue(probability(i+1));
+            Titans curr = probability(i+1);
+            System.out.println(curr.toString());
+            priority.enqueue(curr);
         }
+        System.out.println("pause");
         //the reason for this is to sort the queue with no additional space
         for(int i = 0; i < numberOfTitans; i++){
             priority.enqueue(priority.dequeue());
         }
-        
+        killSequence(priority);
     }
     
     public static Titans probability(int index){
@@ -107,8 +110,9 @@ public class titanStatic {
     public static void killSequence(titansPriorityQueue e){
         System.out.println("Sequence to be killed :");
         int totalDistance = e.dequeue().getIndex(); //index of first titan
-        System.out.println("Titan" + totalDistance); //totalDistance==index of fist titan   
-        for(int i = 1; i < e.getSize(); i++){
+        System.out.print("Titan" + totalDistance); //totalDistance==index of fist titan   
+        int size = e.getSize();
+        for(int i = 0; i < size; i++){
             int n = e.dequeue().getIndex();
             totalDistance += n;
             System.out.print("--> Titan " + n);
@@ -117,3 +121,4 @@ public class titanStatic {
         System.out.println("Total Distance moved : " + totalDistance);
     }
 }
+
