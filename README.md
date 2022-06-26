@@ -27,7 +27,6 @@ This is our repository for data structure project.
 
 [Updated/Finalized version](https://github.com/utsusemi82/AoTproject/blob/master/G804_Blacktonic.zip)
 
-Created by Blacktonic (JiaWen, YoongSiew, Isaiah, Showherda)
-Jun 2022
+Created by Blacktonic (JiaWen, YoongSiew, Isaiah, Showherda) , Jun 2022
 
 
